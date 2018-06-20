@@ -8,4 +8,13 @@ $(document).ready(function(){
 				$(".navbar-default").css({"background-color":"transparent"});  
 			}
 							  });
+	navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+	if(!navigator.vibrate){
+	$("#supported").hide();
+	return;
+	}
+	$("#unsupported").hide();
+	$("#vibration").click(function(){
+	navigator.vibrate(3000);
+	});
 });
